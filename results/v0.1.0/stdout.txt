@@ -1,0 +1,45 @@
+===== setup-01-pip: pip install numpy astropy
+Collecting numpy
+  Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting astropy
+  Downloading astropy-8.0.3-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (11 kB)
+Collecting astropy-iers-data>=0.2026.10.19.0.52.1 (from astropy)
+  Downloading astropy_iers_data-0.2026.11.23.0.35.53-py3-none-any.whl.metadata (3.2 kB)
+Collecting packaging>=25.0 (from astropy)
+  Downloading packaging-26.4-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyerfa>=2.0.1.3 (from astropy)
+  Downloading pyerfa-2.0.1.5-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.7 kB)
+Collecting PyYAML>=6.0.0 (from astropy)
+  Downloading pyyaml-6.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.3 kB)
+Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 11.8 MB/s eta 0:00:00
+Downloading astropy-8.0.3-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (10.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 12.1 MB/s eta 0:00:00
+Downloading astropy_iers_data-0.2026.11.23.0.35.53-py3-none-any.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 14.1 MB/s eta 0:00:00
+Downloading packaging-26.4-py3-none-any.whl (140 kB)
+Downloading pyerfa-2.0.1.5-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (738 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 738.7/738.7 kB 9.8 MB/s eta 0:00:00
+Downloading pyyaml-6.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (849 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 849.2/849.2 kB 6.1 MB/s eta 0:00:00
+Installing collected packages: PyYAML, packaging, numpy, astropy-iers-data, pyerfa, astropy
+Successfully installed PyYAML-6.0.4 astropy-8.0.3 astropy-iers-data-0.2026.11.23.0.35.53 numpy-2.5.5 packaging-26.4 pyerfa-2.0.1.5
+
+===== run-01-python: python -m unittest -v test_occ
+
+===== run-02-python: python job.py --data-dir /data --out-dir /out
+[    0.6s] K2 C2: 414720 bytes
+[    1.8s] K2 C2: 3548 pts, scatter 0.0263, detections 2, best 0.121@2456912.73
+[    2.1s] K2 C15: 460800 bytes
+[    2.2s] K2 C15: 3977 pts, scatter 0.0273, detections 6, best 0.554@2458001.53
+[    2.2s] G1 K2_EVENT_RECOVERED_PLUS_OTHERS; core 2458001.255..2458001.685 (measured, 0.43 d)
+[   28.8s] ZTF points used: 329
+fetched io_tess.py (3661 bytes) from commit 9dfda1bfbe
+[   34.6s] TESScut sector 91: tess-s0091-3-3_241.042141_-22.579427_11x11_astrocut.fits
+[   35.6s] TESS sector 91: 8447 pts, scatter 0.0449, share 1.19, detections 0, injection {'depth_in_aperture': 0.5, 'n_covered': 7, 'n_recovered': 6}
+[   35.6s] ZTF dip points 0, ZTF events 0 (strong 0), TESS events 0 (strong 0)
+[   35.7s] scan grid: 485633 trials
+[   44.8s] scan k2_only: excluded 155489 / 485633 (0.320), 28 allowed runs
+[   61.3s] scan all: excluded 220997 / 485633 (0.455), 1176 allowed runs
+[   78.9s] scan ztf_tess_only: excluded 135722 / 485633 (0.279), 2213 allowed runs
+[   79.0s] OUTCOME NO_SECOND_EVENT G1=K2_EVENT_RECOVERED_PLUS_OTHERS G2=BOUND_REPRODUCED excluded_all=0.455 excluded_k2_only=0.320
