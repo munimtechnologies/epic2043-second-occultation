@@ -1,0 +1,39 @@
+===== setup-01-pip: pip install numpy astropy
+Collecting numpy
+  Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting astropy
+  Downloading astropy-8.0.3-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (11 kB)
+Collecting astropy-iers-data>=0.2026.10.19.0.52.1 (from astropy)
+  Downloading astropy_iers_data-0.2026.11.23.0.35.53-py3-none-any.whl.metadata (3.2 kB)
+Collecting packaging>=25.0 (from astropy)
+  Downloading packaging-26.4-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyerfa>=2.0.1.3 (from astropy)
+  Downloading pyerfa-2.0.1.5-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.7 kB)
+Collecting PyYAML>=6.0.0 (from astropy)
+  Downloading pyyaml-6.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.3 kB)
+Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 44.3 MB/s eta 0:00:00
+Downloading astropy-8.0.3-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (10.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 33.5 MB/s eta 0:00:00
+Downloading astropy_iers_data-0.2026.11.23.0.35.53-py3-none-any.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 42.3 MB/s eta 0:00:00
+Downloading packaging-26.4-py3-none-any.whl (140 kB)
+Downloading pyerfa-2.0.1.5-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (738 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 738.7/738.7 kB 26.2 MB/s eta 0:00:00
+Downloading pyyaml-6.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (849 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 849.2/849.2 kB 28.0 MB/s eta 0:00:00
+Installing collected packages: PyYAML, packaging, numpy, astropy-iers-data, pyerfa, astropy
+Successfully installed PyYAML-6.0.4 astropy-8.0.3 astropy-iers-data-0.2026.11.23.0.35.53 numpy-2.5.5 packaging-26.4 pyerfa-2.0.1.5
+
+===== run-01-python: python -m unittest -v test_gapvet
+
+===== run-02-python: python job_gapvet.py --data-dir /data --out-dir /out
+[01:23:52] sector 91 cutout: ['tess-s0091-3-3_241.042141_-22.579427_21x21_astrocut.fits']
+[01:23:52] sector 91: 9910 good cadences, cutout 21x21
+[01:23:52] gap edges: None
+[01:23:52] S91_pregap: {"label": "REPRO_FAIL", "depth_aperture": -0.25551305563164606, "depth_peak": -1.0050681350547248, "ratio_peak": 3.9335294729661716, "corr_psf": 0.19428602527909905, "bkg_change_equiv": 244.334018701971, "depth_raw_no_bkg": -2.8252236222307516, "control_median_depth": -0.3764801509951723}
+[01:23:52] S91_postgap: {"label": "REPRO_FAIL", "depth_aperture": -0.7820404928580864, "depth_peak": -1.1556031436301764, "ratio_peak": 1.4776768647961542, "corr_psf": -0.7565930384142647, "bkg_change_equiv": 738.1400513236598, "depth_raw_no_bkg": -28.82227732157113, "control_median_depth": -1.0291980537905638}
+[01:23:52] S91_after_midgap: {"label": "SYSTEMATIC", "depth_aperture": 0.1991976286628806, "depth_peak": -0.07306366918280283, "ratio_peak": -0.36678985424296795, "corr_psf": -0.08471810461066359, "bkg_change_equiv": 354.55571854952655, "depth_raw_no_bkg": -14.458740435498848, "control_median_depth": -0.0026808425129238866}
+[01:23:52] S91_negative: {"label": "REPRO_FAIL", "depth_aperture": -0.0025735864437457234, "depth_peak": -0.007584636471035466, "ratio_peak": 2.947107717895971, "corr_psf": -0.2559238492893252, "bkg_change_equiv": -0.17394055223227842, "depth_raw_no_bkg": 0.014166033686439317, "control_median_depth": -0.002047233704951079}
+[01:23:52] S91_positive: {"label": "ON_TARGET", "depth_aperture": 0.3017779991578231, "depth_peak": 0.2921378838452976, "ratio_peak": 0.9680556059771477, "corr_psf": 0.9889520615715404, "bkg_change_equiv": -0.17394055223227842, "depth_raw_no_bkg": 0.03731199512384964, "control_median_depth": -0.0044982759967928665}
+[01:23:52] OUTCOME gate=CONTROLS_OK overall=MIXED labels={'S91_pregap': 'REPRO_FAIL', 'S91_postgap': 'REPRO_FAIL', 'S91_after_midgap': 'SYSTEMATIC', 'S91_negative': 'REPRO_FAIL', 'S91_positive': 'ON_TARGET'}

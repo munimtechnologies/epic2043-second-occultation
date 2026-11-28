@@ -9,14 +9,16 @@ is an open, pre-registered test: reproduce the discoverers' K2 result first, the
 public ZTF (2018-2025) and TESS Sector 91 (2025) data for a second occultation and say which
 periods from 70 to 2000 days are ruled out.
 
-## Status (2026-11-25)
+## Status (2026-11-28)
 
 - **Graded** (`GRADING.md`, results in `results/v0.1.0/`): both gates passed (the K2 event and the
   authors' P >~ 79 d bound are reproduced). No second occultation meets the pre-registered rules in
   ZTF or TESS. With all data, 45.5% of periods from 70 to 2000 d are excluded, and 98.4% of 70-100 d.
-- **Open flag:** the TESS Sector 91 light curve dips at both edges of a 1.74-day data gap
-  (2025-05-04 to 2025-05-06). We think it is a gap-edge systematic, and a pre-registered pixel-level
-  test (`AMENDMENT-2026-11-25-gapvet.md`, job `epic2043-gapvet-v1`) will decide.
+- **Gap-edge flag settled** (`GRADING-gapvet.md`, results in `results/gapvet-v0.1.0/`): the
+  pre-registered pixel test passed its controls (null window empty, injected 30% dip recovered at
+  0.302). At both edges of the Sector 91 data gap the dip is not reproduced in the target's
+  background-subtracted pixels (`REPRO_FAIL`), while the background rises 4 and 31 times above normal.
+  Frozen overall label: `MIXED`; no `CANDIDATE_OCCULTATION`. The headline `NO_SECOND_EVENT` stands.
 
 ## Files
 
@@ -26,7 +28,8 @@ periods from 70 to 2000 days are ruled out.
   munimtechnologies/epic2202-second-eclipse at commit 9dfda1bf.
 - `GRADING.md`, `results/v0.1.0/`: the graded run.
 - `AMENDMENT-2026-11-25-gapvet.md`, `gapvet.py`, `pixvet.py` (unchanged copy from
-  epic2202-second-eclipse commit c9e0c5fa), `job_gapvet.py`, `test_gapvet.py`: the gap-edge pixel test.
+  epic2202-second-eclipse commit c9e0c5fa), `job_gapvet.py`, `test_gapvet.py`: the gap-edge pixel test;
+  `GRADING-gapvet.md`, `results/gapvet-v0.1.0/`: its graded run.
 - `notes/scoop-check-2026-11-25.md`: what was searched to check nobody did this first.
 
 Run: `pip install numpy astropy && python -m unittest -v test_occ && python job.py --data-dir data --out-dir out`.
